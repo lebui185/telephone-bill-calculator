@@ -44,7 +44,7 @@ public class TelephoneBillCalculatorImpl implements TelephoneBillCalculator {
         int rate2Count = 0;
         
         LocalDateTime currentTime = logItem.getStartTime();
-        while (currentTime.isBefore(logItem.getEndTime())) {
+        while (!currentTime.isAfter(logItem.getEndTime())) {
             if (isInsideInterval(currentTime)) {
                 rate1Count++; 
             } else {
